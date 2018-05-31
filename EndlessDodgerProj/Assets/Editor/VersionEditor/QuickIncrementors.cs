@@ -11,30 +11,18 @@ namespace Wokarol.VersionEditor {
 			VersionDataPack tempVersionData = Functions.LoadVersionData();
 			tempVersionData.major++;
 			Functions.SetVersion(tempVersionData);
-
-			UpdateActiveWindow();
 		}
 		[MenuItem("Tools/VersionEditor/QuickOptions/Minor++ %&w", priority = 2)]
 		static void IncrementMinor () {
 			VersionDataPack tempVersionData = Functions.LoadVersionData();
 			tempVersionData.minor++;
 			Functions.SetVersion(tempVersionData);
-
-			UpdateActiveWindow();
 		}
 		[MenuItem("Tools/VersionEditor/QuickOptions/SubMinor++ %&e", priority = 3)]
 		static void IncrementSubMinor () {
 			VersionDataPack tempVersionData = Functions.LoadVersionData();
 			tempVersionData.subMinor++;
 			Functions.SetVersion(tempVersionData);
-
-			UpdateActiveWindow();
-		}
-
-		static void UpdateActiveWindow () {
-			VersionEditor window = (VersionEditor)EditorWindow.GetWindow(typeof(VersionEditor));
-			window.UpdateVersionInWindow();
-			window.Repaint();
 		}
 	}
 }

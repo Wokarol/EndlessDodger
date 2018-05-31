@@ -17,6 +17,13 @@ namespace Wokarol.VersionEditor {
 			window.Show();
 		}
 
+		public void Update () {
+			if (PlayerSettings.bundleVersion != (versionData.major + "." + versionData.minor + "." + versionData.subMinor + Functions.buildPrefix + versionData.build)) {
+				versionData = Functions.LoadVersionData();
+				UpdateVersionInWindow();
+				Repaint();
+			}
+		}
 
 		public void OnGUI () {
 			EditorGUI.BeginChangeCheck();
@@ -41,11 +48,6 @@ namespace Wokarol.VersionEditor {
 
 			if (EditorGUI.EndChangeCheck()) {
 				Functions.SetVersion(versionData);
-				UpdateVersionInWindow();
-			}
-
-			if (PlayerSettings.bundleVersion != (versionData.major + "." + versionData.minor + "." + versionData.subMinor + Functions.buildPrefix + versionData.build)) {
-				versionData = Functions.LoadVersionData();
 				UpdateVersionInWindow();
 			}
 		}

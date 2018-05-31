@@ -21,6 +21,7 @@ namespace Wokarol.VersionEditor {
 		public void OnGUI () {
 			EditorGUI.BeginChangeCheck();
 			EditorGUILayout.HelpBox("Current version: " + Application.version, MessageType.None);
+
 			IntSetter(ref versionData.major, "Major", ref versionData.minor, ref versionData.subMinor);
 			IntSetter(ref versionData.minor, "Minor", ref versionData.subMinor);
 			IntSetter(ref versionData.subMinor, "SubMinor");

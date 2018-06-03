@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Wokarol {
-	[ExecuteInEditMode]
-	public class GameSettingsSetter : MonoBehaviour {
+	public class Motor : MonoBehaviour {
 		[SerializeField] float speed;
-		private void Update () {
-			GameSettings.Speed = speed;
+
+		void FixedUpdate () {
+			transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
 		}
 	}
 }

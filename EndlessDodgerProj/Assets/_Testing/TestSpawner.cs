@@ -5,18 +5,21 @@ using UnityEngine;
 namespace Wokarol {
 	public class TestSpawner : MonoBehaviour {
 
-		[SerializeField] GameObject prefab;
+		[SerializeField] PoolSystem.PoolObjectIdentificator prefab;
 		[Space]
 		[SerializeField] RoadSystem.Road road;
 		[SerializeField] float yOffset;
 
+		PoolSystem.PoolManager poolManager;
+
 		private void Start () {
+			poolManager = PoolSystem.PoolManager.Instance;
 			StartCoroutine(Spawning());
 		}
 
 		private IEnumerator Spawning () {
 			while (true) {
-				Instantiate(prefab, new Vector3(road.Roadways[Random.Range(0, road.RoadwaysCount)] , yOffset, 0) + transform.position, Quaternion.identity);
+				poolManager.Spawn(prefab, new Vector3(road.Roadways[Random.Range(0, road.RoadwaysCount)], yOffset + transform.position.y, 0), Quaternion.identity);
 				yield return new WaitForSeconds(0.4f);
 			}
 		}

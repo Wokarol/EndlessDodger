@@ -7,7 +7,7 @@ namespace Wokarol {
 		[SerializeField] float speed;
 
 		void FixedUpdate () {
-			transform.Translate(Vector2.up * speed * Time.fixedDeltaTime);
+			transform.Translate(transform.InverseTransformVector(Vector3.up) * speed * Time.fixedDeltaTime);
 		}
 	}
 }

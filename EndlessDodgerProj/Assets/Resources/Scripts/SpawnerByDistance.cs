@@ -7,6 +7,8 @@ namespace Wokarol {
 		[SerializeField] PoolSystem.PoolObjectIdentificator prefabIdentificator;
 		[SerializeField] Vector3 offset;
 		[SerializeField] float distance;
+		[Space]
+		[SerializeField] int preSpawnOnStart;
 
 		float lastY;
 
@@ -19,6 +21,12 @@ namespace Wokarol {
 			lastY = pos.y;
 
 			poolManager.Spawn(prefabIdentificator, pos, Quaternion.identity);
+
+			for (int i = 0; i < preSpawnOnStart; i++) {
+				Vector3 newPos = pos;
+				newPos.y -= distance * (i + 1);
+				poolManager.Spawn(prefabIdentificator, newPos, Quaternion.identity);
+			}
 		}
 
 		private void Update () {

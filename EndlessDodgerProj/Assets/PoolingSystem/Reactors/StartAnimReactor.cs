@@ -12,9 +12,6 @@ namespace Wokarol {
 
 		private void OnEnable () {
 			poolObject.OnActivate += OnActivate;
-		}
-
-		private void Start () {
 			triggerHash =  Animator.StringToHash(trigger);
 		}
 

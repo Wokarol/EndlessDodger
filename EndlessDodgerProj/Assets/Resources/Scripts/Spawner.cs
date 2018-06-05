@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Wokarol {
-	public class TestSpawner : MonoBehaviour {
+	public class Spawner : MonoBehaviour {
 
-		[SerializeField] PoolSystem.PoolObjectIdentificator prefab;
+		[SerializeField] PoolSystem.PoolObjectIdentificator[] prefabs;
+		[SerializeField] float time = 0.5f;
 		[Space]
 		[SerializeField] RoadSystem.Road road;
 		[SerializeField] float yOffset;
@@ -19,8 +20,8 @@ namespace Wokarol {
 
 		private IEnumerator Spawning () {
 			while (true) {
-				poolManager.Spawn(prefab, new Vector3(road.Roadways[Random.Range(0, road.RoadwaysCount)], yOffset + transform.position.y, 0), Quaternion.identity);
-				yield return new WaitForSeconds(0.4f);
+				poolManager.Spawn(prefabs[Random.Range(0, prefabs.Length)], new Vector3(road.Roadways[Random.Range(0, road.RoadwaysCount)], yOffset + transform.position.y, 0), Quaternion.identity);
+				yield return new WaitForSeconds(time);
 			}
 		}
 

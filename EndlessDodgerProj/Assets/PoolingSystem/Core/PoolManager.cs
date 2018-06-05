@@ -20,8 +20,9 @@ namespace Wokarol.PoolSystem {
 			for (int i = 0; i < pools.Length; i++) {
 				nameToIndex.Add(pools[i].prefab.objectName, i);
 
+				// Instantiating objects first time
 				for (int j = 0; j < pools[i].startCount; j++) {
-					PoolObject _obj = Instantiate(pools[i].prefab, transform);
+					PoolObject _obj = Instantiate(pools[i].prefab,new Vector3(1000,1000),Quaternion.identity, transform);
 					_obj.Deactivate();
 					pools[i].AddObject(_obj);
 				}

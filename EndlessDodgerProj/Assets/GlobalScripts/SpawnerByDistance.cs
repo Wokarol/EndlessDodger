@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Wokarol {
 	public class SpawnerByDistance : MonoBehaviour {
 		[SerializeField] PoolSystem.PoolObjectIdentificator prefabIdentificator;
+		[SerializeField] PoolSystem.PoolObjectIdentificator preSpawnPrefabIdentificator;
 		[SerializeField] Vector3 offset;
 		[SerializeField] float distance;
 		[Space]
@@ -25,7 +26,7 @@ namespace Wokarol {
 			for (int i = 0; i < preSpawnOnStart; i++) {
 				Vector3 newPos = pos;
 				newPos.y -= distance * (i + 1);
-				poolManager.Spawn(prefabIdentificator, newPos, Quaternion.identity);
+				poolManager.Spawn(preSpawnPrefabIdentificator, newPos, Quaternion.identity);
 			}
 		}
 

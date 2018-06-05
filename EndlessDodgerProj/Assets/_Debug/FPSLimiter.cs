@@ -8,6 +8,8 @@ public class FPSLimiter : MonoBehaviour {
 
 
 	private void Awake () {
+		Debug.Log("Limited framerate to " + maxFPS);
+		QualitySettings.vSyncCount = 0;
 		Application.targetFrameRate = maxFPS;
 	}
 }

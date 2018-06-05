@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114624880003522822}
   - component: {fileID: 114900299810829852}
   - component: {fileID: 114618717093972202}
+  - component: {fileID: 114352418183875208}
   m_Layer: 0
   m_Name: HorizontalLine
   m_TagString: Untagged
@@ -104,6 +105,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: {fileID: 11400000, guid: 4de4aae67d955454793bcc204e26779b, type: 2}
+--- !u!114 &114352418183875208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792894761577574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b03284b7d2048d4793c953ffc1af481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolObject: {fileID: 114344264662818126}
+  value: 1
 --- !u!114 &114618717093972202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,6 +160,7 @@ MonoBehaviour:
   - {fileID: 1122200191830592}
   components:
   - {fileID: 114624880003522822}
+  - {fileID: 114352418183875208}
 --- !u!212 &212997562299336764
 SpriteRenderer:
   m_ObjectHideFlags: 1

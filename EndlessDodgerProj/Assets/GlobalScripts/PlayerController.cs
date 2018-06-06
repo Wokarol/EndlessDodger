@@ -16,5 +16,9 @@ namespace Wokarol {
 			}
 		}
 
+		public void Turn (int dir) {
+			OnTurn?.Invoke(dir);
+		}
+
 	}
 }

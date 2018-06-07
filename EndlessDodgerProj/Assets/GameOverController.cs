@@ -12,11 +12,6 @@ namespace Wokarol {
 		void Start () {
 			anim = GetComponent<Animator>();
 		}
-		
-		void Update () {
-			
-		}
-
 		internal void GameOver () {
 			anim.SetTrigger("GameOver");
 		}

@@ -7,37 +7,37 @@ namespace Wokarol {
 		[SerializeField] Transform target;
 		[System.Serializable]
 		struct FollowAxises {
-			public bool x;
-			public bool y;
-			public bool z;
+			public float x;
+			public float y;
+			public float z;
 
-			public FollowAxises (bool x, bool y, bool z) {
+			public FollowAxises (float x = 1, float y = 1, float z = 1) {
 				this.x = x;
 				this.y = y;
 				this.z = z;
 			}
 		}
-		[SerializeField] FollowAxises followAxises = new FollowAxises(true, true, true);
-		Vector3 offSet;
+		[SerializeField] FollowAxises axises;
+
+		Vector3 targetStart;
+		Vector3 myStart;
 
 		private void Start () {
-			offSet = transform.position - target.position;
+			myStart = transform.position;
+			targetStart = target.position;
 		}
 
 		private void LateUpdate () {
-			Vector3 pos = transform.position;
-			if (followAxises.x) {
-				pos.x = target.position.x + offSet.x;
-			}
-			if (followAxises.y) {
-				pos.y = target.position.y + offSet.y;
-			}
-			if (followAxises.z) {
-				pos.z = target.position.z + offSet.z;
-			}
+			var targetOffset = (target.position - targetStart);
+			//var myOffset = (transform.position - myStart);
+			var newOffset = targetOffset/* - myOffset*/;
+			newOffset.x *= axises.x;
+			newOffset.y *= axises.y;
+			newOffset.z *= axises.z;
 
+			transform.position = myStart + newOffset;
 
-			transform.position = pos;
+			//Debug.Log("target:" + targetOffset + "	 my:" + myOffset + "	offset:" + newOffset);
 		}
 	}
 }

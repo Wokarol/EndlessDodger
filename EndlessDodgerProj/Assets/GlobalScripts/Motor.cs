@@ -9,7 +9,7 @@ namespace Wokarol {
 
 		void FixedUpdate () {
 			transform.Translate(transform.InverseTransformVector(Vector3.up) * speed * Time.fixedDeltaTime);
-			speed += acceleration;
+			speed += acceleration * Time.deltaTime;
 		}
 	}
 }

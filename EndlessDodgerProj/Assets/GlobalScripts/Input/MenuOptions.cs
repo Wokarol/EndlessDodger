@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Wokarol {
-	public class GameOverOptions : MonoBehaviour {
+	public class MenuOptions : MonoBehaviour {
 		private void Start () {
 			Time.timeScale = 1;
 		}

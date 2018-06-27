@@ -7,9 +7,8 @@ namespace Wokarol.ScoreSystem {
 	[RequireComponent(typeof(TextMeshProUGUI))]
 	public class UIScoreTextController : MonoBehaviour {
 		TextMeshProUGUI textMesh;
-		ScoreSystem scoreSystem;
+		[SerializeField] ScoreSystem scoreSystem;
 		void OnEnable () {
-			scoreSystem = GameObject.FindGameObjectWithTag("ScoreSystem").GetComponent<ScoreSystem>();
 			textMesh = GetComponent<TextMeshProUGUI>();
 		}
 		

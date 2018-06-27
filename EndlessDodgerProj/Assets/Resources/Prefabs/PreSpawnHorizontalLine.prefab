@@ -19,9 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4709250316243746}
-  - component: {fileID: 114200942377068564}
-  - component: {fileID: 114693891411474656}
-  - component: {fileID: 114188088766574690}
+  - component: {fileID: 114581506585407226}
   m_Layer: 0
   m_Name: PreSpawnHorizontalLine
   m_TagString: Untagged
@@ -72,7 +70,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114188088766574690
+--- !u!114 &114581506585407226
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -80,38 +78,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1108610428166776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbc3a558b1db2540babf51dd8fe7868, type: 3}
+  m_Script: {fileID: 11500000, guid: c0e30a8348b4978448b2837cdeaf1d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolObject: {fileID: 114200942377068564}
-  objects:
-  - {fileID: 1539220529334028}
-  components:
-  - {fileID: 114693891411474656}
---- !u!114 &114200942377068564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1108610428166776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0941b7d6e6b7375469bddbf37bad4f85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectName: {fileID: 11400000, guid: af1d060057043b44fbd433dd8b819a23, type: 2}
---- !u!114 &114693891411474656
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1108610428166776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac617b8b1f8f63b4faec20b144d257ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolObject: {fileID: 114200942377068564}
+  y:
+    UseConstant: 0
+    ScriptableVariable: {fileID: 11400000, guid: d84281959c12cd948bb007ed90a6c4c2,
+      type: 2}
+    ConstantValue: 0
+  onPassed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1108610428166776}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!212 &212313495671726498
 SpriteRenderer:
   m_ObjectHideFlags: 1

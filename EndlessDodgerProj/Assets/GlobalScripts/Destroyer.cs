@@ -5,15 +5,15 @@ using UnityEngine;
 namespace Wokarol {
 	public class Destroyer : MonoBehaviour {
 		[SerializeField] PoolSystem.PoolObject poolObject;
-		Transform player;
-
-		private void Start () {
-			player = GameObject.FindGameObjectWithTag("Player").transform;
-		}
+		[SerializeField] FloatVariableReference PlayerY;
 
 		void Update () {
-			if (player.position.y - 5 > transform.position.y) {
-				poolObject.Destroy();
+			if (PlayerY.Value - 5 > transform.position.y) {
+				if (poolObject) {
+					poolObject.Destroy();
+				} else {
+					Destroy(gameObject);
+				}
 			}
 		}
 	}

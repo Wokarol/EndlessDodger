@@ -53,14 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - prefab: {fileID: 114340986967042454, guid: ebcaaac29f296d34dac624e40164df71, type: 2}
-    startCount: 5
-    growBy: 5
-  - prefab: {fileID: 114287298501660334, guid: 3f1cc6176eafecc408cd08f3fdee8b81, type: 2}
-    startCount: 5
-    growBy: 5
+    startCount: 10
+    growBy: 10
   - prefab: {fileID: 114344264662818126, guid: 0c60ec2759d7ab841bf9b33a3de39a9d, type: 2}
-    startCount: 5
-    growBy: 5
-  - prefab: {fileID: 114200942377068564, guid: 3848af603386bf847bfc0b22e53c39b1, type: 2}
-    startCount: 5
-    growBy: 1
+    startCount: 10
+    growBy: 10

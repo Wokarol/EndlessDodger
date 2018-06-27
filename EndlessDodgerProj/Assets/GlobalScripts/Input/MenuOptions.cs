@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 namespace Wokarol {
 	public class MenuOptions : MonoBehaviour {
-		private void Start () {
-			Time.timeScale = 1;
-		}
 
 		public void LoadLevel (string lvlName) {
 			SceneManager.LoadScene(lvlName);

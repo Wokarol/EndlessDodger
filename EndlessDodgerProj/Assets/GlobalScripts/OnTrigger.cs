@@ -6,6 +6,7 @@ using UnityEngine.Events;
 namespace Wokarol {
 	public class OnTrigger : MonoBehaviour {
 		[SerializeField] bool watching = true;
+		[SerializeField] bool debugData = false;
 		[Space]
 		[SerializeField] string lookedTag = "Enemy";
 		[SerializeField] UnityEvent onTouch;
@@ -14,7 +15,7 @@ namespace Wokarol {
 			if (!watching) {
 				return;
 			}
-			Debug.Log(gameObject.name + " touched " + collider.gameObject.tag);
+			if(debugData) Debug.Log(gameObject.name + " touched " + collider.gameObject.tag);
 			if (collider.gameObject.tag == lookedTag) {
 				onTouch.Invoke();
 			}

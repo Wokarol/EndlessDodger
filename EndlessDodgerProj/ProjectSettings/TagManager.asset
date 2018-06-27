@@ -7,6 +7,7 @@ TagManager:
   - ScoreSystem
   - Enemy
   - GameOverScreen
+  - ScoreAdder
   layers:
   - Default
   - TransparentFX

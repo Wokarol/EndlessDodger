@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 61369509629797976}
   - component: {fileID: 114742934575949668}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: Scorer
   m_TagString: ScoreAdder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

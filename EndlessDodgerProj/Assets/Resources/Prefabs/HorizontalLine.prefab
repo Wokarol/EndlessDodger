@@ -36,7 +36,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4454290213183388}
-  - component: {fileID: 114414359353813006}
   - component: {fileID: 114091126848948216}
   m_Layer: 0
   m_Name: Scorer
@@ -146,8 +145,8 @@ MonoBehaviour:
   onPassed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114414359353813006}
-        m_MethodName: SendScore
+      - m_Target: {fileID: 11400000, guid: e867b08177efa604abe745ba7b66207c, type: 2}
+        m_MethodName: AddPoints
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -182,17 +181,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: {fileID: 11400000, guid: 4de4aae67d955454793bcc204e26779b, type: 2}
---- !u!114 &114414359353813006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1273718806359318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b03284b7d2048d4793c953ffc1af481, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114618717093972202
 MonoBehaviour:
   m_ObjectHideFlags: 1

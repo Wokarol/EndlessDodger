@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Wokarol.ScoreSystem {
-	public class ScoreSystem : MonoBehaviour {
+	[CreateAssetMenu]
+	public class ScoreSystem : ScriptableObject {
 		public int Score { get; private set; }
 
-		private void Start () {
-			Score = 0;
+		public void SetScore (int value)
+		{
+			Score = value;
 		}
 
 		public void AddPoints(int value) {

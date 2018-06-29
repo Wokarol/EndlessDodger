@@ -142,6 +142,10 @@ MonoBehaviour:
     ScriptableVariable: {fileID: 11400000, guid: d84281959c12cd948bb007ed90a6c4c2,
       type: 2}
     ConstantValue: 0
+  yThreshhold:
+    UseConstant: 1
+    ScriptableVariable: {fileID: 0}
+    ConstantValue: 5
   onPassed:
     m_PersistentCalls:
       m_Calls:

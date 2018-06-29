@@ -26,10 +26,8 @@ namespace Wokarol.ScoreSystem {
 		public void CountHighscore ()
 		{
 			var prevHighscore = HighscoreData.GetEntry<int>(StringConsts.HIGHSCORE, 0);
-			//var prevHighscore = PlayerPrefs.GetFloat(StringConsts.HIGHSCORE);
 
 			if(Score > prevHighscore) {
-				//PlayerPrefs.SetFloat(StringConsts.HIGHSCORE, Score);
 				HighscoreData.SendEntry(StringConsts.HIGHSCORE, Score);
 				OnHighscore.Invoke();
 			}

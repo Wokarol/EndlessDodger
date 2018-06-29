@@ -9,8 +9,8 @@ namespace Wokarol {
 		[SerializeField] Serializer HighscoreData;
 		[SerializeField] TMPro.TMP_Text text;
 
-		void Update () {
-			//text.text = PlayerPrefs.GetFloat(StringConsts.HIGHSCORE).ToString();
+		public void UpdateText ()
+		{
 			text.text = HighscoreData.GetEntry<int>(StringConsts.HIGHSCORE, 0).ToString();
 		}
 

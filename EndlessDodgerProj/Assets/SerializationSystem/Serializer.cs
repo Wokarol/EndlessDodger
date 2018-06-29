@@ -103,6 +103,9 @@ namespace Wokarol {
 		/// <param name="value">Value</param>
 		public void SendEntry (string key, object value)
 		{
+			if (currentData == null)
+				Load();
+
 			if (currentData.ContainsKey(key)) {
 				currentData[key] = value;
 			} else {
@@ -119,6 +122,9 @@ namespace Wokarol {
 		/// <returns>Returned value</returns>
 		public T GetEntry<T> (string key, T defaultValue)
 		{
+			if (currentData == null)
+				Load();
+
 			if (currentData.ContainsKey(key)) {
 				if(currentData[key] is T) {
 					return (T)currentData[key];

@@ -14,14 +14,18 @@ namespace Wokarol {
 		[SerializeField] RoadSystem.Road road;
 		[SerializeField] int startingRoadway;
 
+
+		int currentRoadway = 0;
+		[SerializeField] IntVariableReference CurrentRoadway;
+
 		Coroutine TurnCoroutine;
 
 		bool canMove;
-		int currentRoadway;
 
 		private void Start () {
 			canMove = true;
 			currentRoadway = Mathf.Clamp(startingRoadway, 0, road.RoadwaysCount - 1);
+			CurrentRoadway.Value = currentRoadway;
 			playerController.OnTurn += OnTurn;
 		}
 
@@ -37,6 +41,8 @@ namespace Wokarol {
 				}
 				TurnCoroutine = StartCoroutine(TurnAnim(GetNewPos(newInd), dir));
 			}
+
+			CurrentRoadway.Value = currentRoadway;
 		}
 
 		IEnumerator TurnAnim (float newPos, int dir) {

@@ -10,4 +10,9 @@ namespace Wokarol {
 	[System.Serializable]
 	public class StringVariableReference : GenericVariableReference<string, StringVariable> {
 	}
+
+	[System.Serializable]
+	public class IntVariableReference : GenericVariableReference<int, IntVariable>
+	{
+	}
 }

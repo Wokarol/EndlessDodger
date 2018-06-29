@@ -6,7 +6,12 @@ using UnityEngine.Events;
 namespace Wokarol.ScoreSystem {
 	[CreateAssetMenu]
 	public class ScoreSystem : ScriptableObject {
+
+		[Tooltip("Serializer object that deserializes file containg highscore")]
+		[SerializeField] Serializer HighscoreData;
+
 		public int Score { get; private set; }
+
 		public UnityEvent OnHighscore;
 
 		public void SetScore (int value)
@@ -20,9 +25,10 @@ namespace Wokarol.ScoreSystem {
 
 		public void CountHighscore ()
 		{
-			var prevHighscore = PlayerPrefs.GetFloat(StringConsts.HIGHSCORE);
+			var prevHighscore = HighscoreData.GetEntry<int>(StringConsts.HIGHSCORE, 0);
+
 			if(Score > prevHighscore) {
-				PlayerPrefs.SetFloat(StringConsts.HIGHSCORE, Score);
+				HighscoreData.SendEntry(StringConsts.HIGHSCORE, Score);
 				OnHighscore.Invoke();
 			}
 		}

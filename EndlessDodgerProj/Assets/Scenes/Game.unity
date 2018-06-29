@@ -176,7 +176,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150279068}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1421,18 +1421,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c43393d9e29ab4f8f73a3d6cdf6647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
+  negativePrefabs:
   - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
-  - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
-  - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
-  - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
-  - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
-  - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
-  - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
+  positivePrefabs:
   - {fileID: 11400000, guid: a24a857dc122f26489d4e35cb5eb171b, type: 2}
+  positivePrefabChance: 0.1
   time: 0.5
   road: {fileID: 11400000, guid: 368d8766176a79749bd2d90f3fdc1038, type: 2}
   yOffset: 7
+  ObservedObjectRoadway:
+    UseConstant: 0
+    ScriptableVariable: {fileID: 11400000, guid: dc9e7f0c9ccb50d418e4a3ff1d8fb920,
+      type: 2}
+    ConstantValue: 0
+  percentPerRoadway: []
 --- !u!4 &798533931
 Transform:
   m_ObjectHideFlags: 0
@@ -2066,7 +2068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb85e0031293c1348826aeb039bdc69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  watching: 1
+  watching: 0
   debugData: 0
   lookedTag: Enemy
   onTouch:
@@ -2303,6 +2305,11 @@ MonoBehaviour:
     m_RotationOrder: 4
   road: {fileID: 11400000, guid: 368d8766176a79749bd2d90f3fdc1038, type: 2}
   startingRoadway: 2
+  CurrentRoadway:
+    UseConstant: 0
+    ScriptableVariable: {fileID: 11400000, guid: dc9e7f0c9ccb50d418e4a3ff1d8fb920,
+      type: 2}
+    ConstantValue: 0
 --- !u!114 &1295668995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2576,11 +2583,11 @@ MonoBehaviour:
     lineCount: 2
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8373,6 +8380,8 @@ GameObject:
   - component: {fileID: 2004139958}
   - component: {fileID: 2004139957}
   - component: {fileID: 2004139956}
+  - component: {fileID: 2004139959}
+  - component: {fileID: 2004139960}
   m_Layer: 5
   m_Name: HScore
   m_TagString: Untagged
@@ -8409,6 +8418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4833abc361dac3f468122873807f22c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighscoreData: {fileID: 11400000, guid: 0fe54f99b2e99e545870646bed477e31, type: 2}
   text: {fileID: 2004139957}
 --- !u!114 &2004139957
 MonoBehaviour:
@@ -8529,6 +8539,62 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2004139954}
+--- !u!114 &2004139959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2004139954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: cccdd86c2e735824e8e0e561001daec8, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2004139956}
+        m_MethodName: UpdateText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2004139960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2004139954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8ee0542f231c89f419259ab7728ecd19, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2004139956}
+        m_MethodName: UpdateText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2078525088
 GameObject:
   m_ObjectHideFlags: 0

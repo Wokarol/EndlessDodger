@@ -61,7 +61,7 @@ namespace Wokarol
 			return currentLowestIndex;
 		}
 
-		void Normalize ()
+		internal void Normalize ()
 		{
 			float total = 0;
 			for (int i = 0; i < weights.Length; i++) {

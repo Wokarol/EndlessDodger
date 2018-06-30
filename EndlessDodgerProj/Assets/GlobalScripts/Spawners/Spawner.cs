@@ -17,9 +17,7 @@ namespace Wokarol {
 		[Space]
 		[SerializeField] IntVariableReference ObservedObjectRoadway;
 
-
-		// REMOVE_DEBUG: Deserialize
-		[SerializeField] RandomWeights percentPerRoadway;
+		RandomWeights percentPerRoadway;
 
 		PoolSystem.PoolManager poolManager;
 		private float countdown;

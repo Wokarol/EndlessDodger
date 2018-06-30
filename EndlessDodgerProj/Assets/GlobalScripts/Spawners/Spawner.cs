@@ -48,13 +48,16 @@ namespace Wokarol {
 
 		private void RecalculatePercentage ()
 		{
-			percentPerRoadway[ObservedObjectRoadway.Value] += 0.001f;
+			ChangeChance(ObservedObjectRoadway.Value, 0.001f);
+		}
 
+		private void ChangeChance(int index, float value)
+		{
+			percentPerRoadway[index] += value;
 			float total = 0;
 			for (int i = 0; i < percentPerRoadway.Length; i++) {
 				total += percentPerRoadway[i];
 			}
-
 			for (int i = 0; i < percentPerRoadway.Length; i++) {
 				percentPerRoadway[i] /= total;
 			}
@@ -67,14 +70,25 @@ namespace Wokarol {
 				bool positive = (Random.Range(0f, 1f) < positivePrefabChance);
 
 				if (positive) {
-					poolManager.Spawn(positivePrefabs[Random.Range(0, positivePrefabs.Length)],
-						new Vector3(road.Roadways[GetLowestChanceIndex(percentPerRoadway)], yOffset + transform.position.y, 0),
-						Quaternion.identity);
-				} else {
-					poolManager.Spawn(negativePrefabs[Random.Range(0, negativePrefabs.Length)], 
-						new Vector3(road.Roadways[GetIndexBasedOnHighestChanges(percentPerRoadway)], yOffset + transform.position.y, 0), 
+					int prefabIndex = Random.Range(0, positivePrefabs.Length);
+					int roadwayIndex = GetLowestChanceIndex(percentPerRoadway);
+
+					poolManager.Spawn(positivePrefabs[prefabIndex],
+						new Vector3(road.Roadways[roadwayIndex], yOffset + transform.position.y, 0),
 						Quaternion.identity);
 
+					// Change chance based on randomizated road for positive outcome
+					ChangeChance(roadwayIndex, 0.2f);
+				} else {
+					int prefabIndex = Random.Range(0, negativePrefabs.Length);
+					int roadwayIndex = GetIndexBasedOnHighestChanges(percentPerRoadway);
+
+					poolManager.Spawn(negativePrefabs[prefabIndex], 
+						new Vector3(road.Roadways[roadwayIndex], yOffset + transform.position.y, 0), 
+						Quaternion.identity);
+
+					// Change chance based on randomizated road for negative outcome
+					ChangeChance(roadwayIndex, -0.005f);
 				}
 				countdown = time;
 			}

@@ -1425,7 +1425,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5749d5ec3927b4e40b63c87eb1c7e376, type: 2}
   positivePrefabs:
   - {fileID: 11400000, guid: a24a857dc122f26489d4e35cb5eb171b, type: 2}
-  positivePrefabChance: 0.1
+  positivePrefabChance: 0.2
   time: 0.5
   road: {fileID: 11400000, guid: 368d8766176a79749bd2d90f3fdc1038, type: 2}
   yOffset: 7

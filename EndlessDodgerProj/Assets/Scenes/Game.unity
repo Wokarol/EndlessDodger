@@ -1434,7 +1434,8 @@ MonoBehaviour:
     ScriptableVariable: {fileID: 11400000, guid: dc9e7f0c9ccb50d418e4a3ff1d8fb920,
       type: 2}
     ConstantValue: 0
-  percentPerRoadway: []
+  percentPerRoadway:
+    weights: []
 --- !u!4 &798533931
 Transform:
   m_ObjectHideFlags: 0
@@ -2068,7 +2069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb85e0031293c1348826aeb039bdc69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  watching: 0
+  watching: 1
   debugData: 0
   lookedTag: Enemy
   onTouch:

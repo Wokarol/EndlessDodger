@@ -29,6 +29,7 @@ namespace Wokarol.ScoreSystem {
 
 			if(Score > prevHighscore) {
 				HighscoreData.SendEntry(StringConsts.HIGHSCORE, Score);
+				HighscoreData.Save();
 				OnHighscore.Invoke();
 			}
 		}

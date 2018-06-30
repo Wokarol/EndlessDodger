@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e7f350c779755043b9edb6a5ac8bedb, type: 3}
-  m_Name: GameDataSaver
+  m_Name: HighscoreData
   m_EditorClassIdentifier: 
   folderName: Saves
   fileName: GameData
